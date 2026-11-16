@@ -1,0 +1,226 @@
+/* Navbar compartilhada (Mural, Perfil e Chat) — regras originais do mural.css.
+   Depende das variáveis --white, --primary-blue, --text-main, --text-muted,
+   --border-color, --badge-bg e --font-family (definidas no CSS da página
+   ou em navbar-vars.css). */
+.navbar, .navbar * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    font-family: var(--font-family);
+}
+
+.navbar {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-main);
+}
+
+.logo-icon {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-wireframe {
+    background-color: var(--badge-bg);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 500;
+}
+
+.location-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--badge-bg);
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+}
+
+.location-selector select {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--text-main);
+    outline: none;
+    cursor: pointer;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-main);
+}
+
+.notification-badge {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-color);
+    position: relative;
+    cursor: pointer;
+}
+
+.user-profile::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.user-profile:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.25rem;
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item i {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.dropdown-item:hover {
+    background-color: var(--badge-bg);
+}
+
+.dropdown-item:hover i {
+    color: var(--primary-blue);
+}
+
+.dropdown-item .notification-badge {
+    margin-left: auto;
+}
+
+.dropdown-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 0.25rem 0;
+}
+
+.dropdown-item.logout {
+    color: #ef4444; 
+}
+
+.dropdown-item.logout i {
+    color: #ef4444;
+}
+
+.dropdown-item.logout:hover {
+    background-color: #fef2f2; 
+}
+
+/* Telas estreitas: compacta a navbar para não estourar a largura */
+@media (max-width: 700px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-left, .nav-center, .nav-right {
+        gap: 0.5rem;
+    }
+
+    .badge-wireframe,
+    .location-selector span {
+        display: none;
+    }
+
+    .user-profile {
+        margin-left: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        display: none;
+    }
+}

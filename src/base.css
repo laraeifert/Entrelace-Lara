@@ -1,0 +1,6 @@
+/* O #root não gera caixa própria: assim os elementos de cada página
+   continuam sendo filhos diretos do <body>, exatamente como no HTML original
+   (necessário para o flex do body, rodapé colado embaixo, etc.). */
+#root {
+  display: contents;
+}

@@ -1,0 +1,201 @@
+/* ==============================================================
+   VALIDAÇÃO DE RESIDÊNCIA (visual mantido, só com as cores novas)
+   ============================================================== */
+.validacao {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.validacao-card {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 40px -20px rgba(30, 64, 175, 0.2);
+}
+
+.validacao-topo {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.validacao-icone {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--brand-50);
+  color: var(--brand-600);
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.validacao-topo h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.validacao-topo p {
+  font-size: 0.875rem;
+  color: var(--suave);
+  line-height: 1.5;
+}
+
+.validacao-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.grupo > span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--suave);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.grupo input[type='text'] {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--borda);
+  background: var(--fundo);
+  font: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.grupo input[type='text']:focus {
+  border-color: var(--brand-500);
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.75rem 1rem;
+  border: 2px dashed var(--borda);
+  border-radius: 14px;
+  background: var(--fundo);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.upload:hover {
+  border-color: var(--brand-500);
+  background: var(--brand-50);
+}
+
+.upload input {
+  display: none;
+}
+
+.upload i {
+  font-size: 1.75rem;
+  color: var(--suave);
+  margin-bottom: 0.4rem;
+}
+
+.upload strong {
+  font-size: 0.875rem;
+}
+
+.upload small {
+  font-size: 0.72rem;
+  color: var(--suave);
+  margin-top: 0.2rem;
+}
+
+.upload.com-arquivo {
+  border-color: var(--verde);
+  background: #ecfdf5;
+}
+
+.upload.com-arquivo i {
+  color: var(--verde);
+}
+
+.aviso-seguro {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  gap: 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.aviso-seguro i {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.erro-form {
+  color: #dc2626;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.aprovado {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  animation: aparecer-validacao 0.4s ease both;
+}
+
+@keyframes aparecer-validacao {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.aprovado-icone {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #d1fae5;
+  color: var(--verde);
+  display: grid;
+  place-items: center;
+  font-size: 1.9rem;
+}
+
+.aprovado h2 {
+  font-size: 1.2rem;
+}
+
+.aprovado p {
+  font-size: 0.8rem;
+  color: var(--suave);
+}
+
+@media (max-width: 540px) {
+  .validacao-card {
+    padding: 1.75rem 1.25rem;
+  }
+}

@@ -1,0 +1,291 @@
+/* ==============================================================
+   LANDING + CADASTRO/LOGIN (card dividido com painel em gradiente)
+   ============================================================== */
+.landing {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #eaf0ff 0%, #d9e4fb 100%);
+}
+
+/* Bolas desfocadas de fundo (efeito decorativo) */
+.landing::before,
+.landing::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.landing::before {
+  width: 380px;
+  height: 380px;
+  background: #93b4ff;
+  top: -120px;
+  left: -100px;
+}
+
+.landing::after {
+  width: 420px;
+  height: 420px;
+  background: #a5b4fc;
+  bottom: -160px;
+  right: -120px;
+}
+
+.landing > * {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-centro {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 1rem 1rem 2.5rem;
+}
+
+/* ---------- Card ---------- */
+.auth-card {
+  position: relative;
+  width: 100%;
+  max-width: 940px;
+  min-height: 600px;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 30px 60px -20px rgba(30, 64, 175, 0.35);
+  overflow: hidden;
+}
+
+/* Painel azul: fica à esquerda e desliza para a direita no modo "login" */
+.auth-painel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(145deg, #1e3a8a 0%, #2563eb 55%, #4f7bf0 100%);
+  border-radius: 0 150px 150px 0;
+  padding: 2.5rem 3.5rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  transition: transform 0.6s ease, border-radius 0.6s ease;
+}
+
+.auth-card.modo-login .auth-painel {
+  transform: translateX(100%);
+  border-radius: 150px 0 0 150px;
+  padding: 2.5rem 2.5rem 2.5rem 3.5rem;
+}
+
+.painel-selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.auth-painel h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.auth-painel > p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  opacity: 0.9;
+}
+
+.painel-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+  width: 100%;
+}
+
+.painel-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.65rem 0.85rem;
+  border-radius: 14px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.painel-lista i {
+  font-size: 1.2rem;
+  margin-top: 0.1rem;
+}
+
+.painel-lista strong {
+  display: block;
+  font-size: 0.82rem;
+}
+
+/* ---------- Formulários ---------- */
+.auth-form {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+  animation: aparecer 0.5s ease 0.15s both;
+}
+
+.form-cadastro {
+  right: 0;
+}
+
+.form-login {
+  left: 0;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.auth-form h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.sociais {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.social-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--borda);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  color: var(--texto);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.social-btn:hover {
+  border-color: var(--brand-500);
+  color: var(--brand-600);
+  transform: translateY(-2px);
+}
+
+.auth-ou {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--suave);
+}
+
+.campo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #eef2f9;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  transition: all 0.2s;
+}
+
+.campo:focus-within {
+  border-color: var(--brand-500);
+  background: #fff;
+}
+
+.campo i {
+  color: var(--suave);
+  font-size: 1.1rem;
+}
+
+.campo input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--texto);
+}
+
+.lembrar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--suave);
+  cursor: pointer;
+}
+
+.lembrar input {
+  accent-color: var(--brand-600);
+}
+
+/* ---------- Celular: tudo empilhado ---------- */
+@media (max-width: 820px) {
+  .auth-card {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .auth-painel,
+  .auth-card.modo-login .auth-painel {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none;
+    border-radius: 0 0 40px 40px;
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-form {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .painel-lista {
+    display: none;
+  }
+}
